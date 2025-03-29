@@ -1,31 +1,100 @@
 ///Navbar related
 let navbar = document.getElementById("Navbar")
-let heroeSize = document.getElementById("Heroe").clientHeight
+let heroe = document.getElementById("Heroe")
 let hamburgerButton = document.getElementById("Hamburger_button")
 let navbarLinks = document.getElementById("Navbar_Links")
 
 addEventListener("scroll", handleNavbarScroll)
 hamburgerButton.addEventListener("click", handleNavbarCollapse)
 
-if (scrollY > heroeSize){
+if (scrollY > heroe){
   navbar.style.opacity = "1";
 }
 
 
 function handleNavbarScroll(){
 
-  if (scrollY > heroeSize) return
-  var percentage = (scrollY/heroeSize)
+  if (scrollY > heroe.clientHeight) return
+  var percentage = (scrollY/heroe.clientHeight)
   navbar.style.opacity = percentage.toString();
 
 }
 
 
 function handleNavbarCollapse(){
-  navbarLinks.style.display =  navbarLinks.style.display == "none" ? "block" : "none";
+  navbarLinks.style.display =  navbarLinks.style.display === "none" ? "block" : "none";
 }
 
 
+///About related
+
+let aboutSection = document.getElementById("About");
+let about1 = document.getElementById("About-1")
+let about2 = document.getElementById("About-2")
+
+let aboutElements = [about1, about2]
+
+var scrollDisabled =  false;
+var touchStartpos;
+
+addEventListener("scroll", handleAboutScroll)
+
+var opacity = 100;
+function handleAboutScroll(){
+
+  if (scrollY > heroe.clientHeight && scrollY < aboutSection.clientHeight && !scrollDisabled){
+    console.log("Disabling scroll")
+    document.getElementsByTagName("body")[0].style.overflowY = "hidden"
+    scrollDisabled = true;
+
+    addEventListener("touchstart", function (e){touchStartpos = e.changedTouches[0].clientY})
+
+    addEventListener("touchmove", function (e) {
+
+      if (scrollY > heroe.clientHeight && scrollY < aboutSection.clientHeight){
+
+        let newPos = e.changedTouches[0].clientY
+
+        if (newPos > touchStartpos){
+          opacity += 0.5;
+        }
+        else if (newPos < touchStartpos){
+          opacity-= 0.5
+        }
+
+        if (opacity < 0 || opacity > 100){
+          document.getElementsByTagName("body")[0].style.overflowY = "scroll"
+        }
+
+        aboutElements[0].style.opacity = (opacity/100).toString()
+        aboutElements[1].style.opacity = ((100-opacity)/100).toString()
+        console.log("opacity: " + opacity)
+
+      }
+      else if (scrollDisabled){
+        scrollDisabled = false
+
+        if (opacity < 0){
+          console.log("Setting opacity to 0")
+          opacity = 0
+        }
+        else {
+          console.log("Setting opacity to 100")
+          opacity = 100
+        }
+
+        if (about1.style.opacity === "0"){
+          aboutElements = [about2, about1]
+        }
+        else{
+          aboutElements = [about1, about2]
+        }
+
+      }
+
+    })
+  }
+}
 
 
 ///Contact form related

@@ -168,7 +168,6 @@ svg {
       align-content: center;
       margin-left: 1em;
     }
-
   }
 
 }
@@ -285,13 +284,6 @@ svg {
 
   }
 
-  #About-1, #About-2{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-  }
-
-
 
   h2{
       color: rgba(var(--primary));
@@ -316,7 +308,8 @@ svg {
     }
 
    #About-2{
-      display: none;
+     position: absolute;
+     opacity: 0;
     }
 
    .Img-container{
