@@ -133,6 +133,7 @@ svg {
     }
 
       ul {
+        display: none;
         line-height: 4;
         width: 100%;
       }
@@ -149,6 +150,7 @@ svg {
     }
 
     ul{
+      display: flex;
       margin-right: 2rem;
     }
 

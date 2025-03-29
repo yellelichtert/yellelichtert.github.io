@@ -7,10 +7,14 @@ let navbarLinks = document.getElementById("Navbar_Links")
 addEventListener("scroll", handleNavbarScroll)
 hamburgerButton.addEventListener("click", handleNavbarCollapse)
 
+if (scrollY > heroeSize){
+  navbar.style.opacity = "1";
+}
+
 
 function handleNavbarScroll(){
 
-  if (window.scrollY > heroeSize) return
+  if (scrollY > heroeSize) return
   var percentage = (scrollY/heroeSize)
   navbar.style.opacity = percentage.toString();
 
