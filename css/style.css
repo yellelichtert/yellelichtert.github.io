@@ -96,8 +96,9 @@ svg {
   justify-content: space-between;
   opacity: 0;
   background-color: black;
-  background-blend-mode: difference;
   height: fit-content;
+
+
 
   position: fixed;
   width: 100vw;
@@ -106,37 +107,66 @@ svg {
   text-align: center;
   line-height: 0.5;
 
-  ul{
-    margin-right: 2em;
-  }
+  color: white;
 
-  h1{
-    margin-left: 2em;
-    color: white;
-
-    mix-blend-mode: difference;
-  }
 
   a, a:visited, a:link{
     text-decoration: none;
     color: white;
   }
 
-  body{
-    background-image: url("/img/Heroe.png");
-  }
-
-
   ul{
     list-style: none;
-    display: flex;
-    justify-items: flex-end;
-    justify-content: space-between;
   }
 
-  li{
-    align-content: center;
-    margin-left: 1em;
+
+
+  @media screen and (max-width: 767px)
+  {
+    flex-wrap: wrap;
+    h1{
+      margin-left: 1rem;
+    }
+
+    svg{
+      margin-right: 1rem;
+    }
+
+      ul {
+        line-height: 4;
+        width: 100%;
+      }
+
+      svg {
+         width: 5%;
+      }
+  }
+
+  @media screen and (min-width: 768px) {
+
+    h1{
+      margin-left: 2rem;
+    }
+
+    ul{
+      margin-right: 2rem;
+    }
+
+    svg{
+      display: none;
+    }
+
+    ul{
+      display: flex;
+      justify-items: flex-end;
+      justify-content: space-between;
+    }
+
+    li{
+      align-content: center;
+      margin-left: 1em;
+    }
+
   }
 
 }
