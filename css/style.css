@@ -91,6 +91,56 @@ svg {
 }
 
 
+#Navbar{
+  display: flex;
+  justify-content: space-between;
+  opacity: 0;
+  background-color: black;
+  background-blend-mode: difference;
+  height: fit-content;
+
+  position: fixed;
+  width: 100vw;
+
+  z-index: 999;
+  text-align: center;
+  line-height: 0.5;
+
+  ul{
+    margin-right: 2em;
+  }
+
+  h1{
+    margin-left: 2em;
+    color: white;
+
+    mix-blend-mode: difference;
+  }
+
+  a, a:visited, a:link{
+    text-decoration: none;
+    color: white;
+  }
+
+  body{
+    background-image: url("/img/Heroe.png");
+  }
+
+
+  ul{
+    list-style: none;
+    display: flex;
+    justify-items: flex-end;
+    justify-content: space-between;
+  }
+
+  li{
+    align-content: center;
+    margin-left: 1em;
+  }
+
+}
+
 /* Start Heroe */
 
 #Heroe {
@@ -181,12 +231,9 @@ svg {
 /* End heroe */
 
 
-
-
 /* Start about */
 
 #About {
-
   flex-direction: column;
   height: fit-content;
   align-items: center;
@@ -592,6 +639,12 @@ svg {
       font-weight: bold;
       font-size: 1rem;
     }
+  }
+
+  .hasValue {
+    bottom: 0;
+    font-weight: bold;
+    font-size: 1rem;
   }
 
 
