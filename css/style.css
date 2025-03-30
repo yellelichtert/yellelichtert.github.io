@@ -286,7 +286,7 @@ svg {
 
 
   h2{
-      color: rgba(var(--primary));
+    color: rgba(var(--primary));
   }
 
 
@@ -307,14 +307,14 @@ svg {
       position: relative;
     }
 
-   #About-2{
-     position: absolute;
-     opacity: 0;
+    #About-2{
+      position: absolute;
+      opacity: 0;
     }
 
-   .Img-container{
-     align-self: center;
-   }
+    .Img-container{
+      align-self: center;
+    }
   }
 
 
@@ -350,7 +350,6 @@ svg {
   }
 
 }
-
 /* End about */
 
 
